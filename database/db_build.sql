@@ -11,15 +11,19 @@ CREATE TABLE mentors (
     other TEXT
 );
 
-INSERT INTO mentors (name, cohort, gitter_handle, other) VALUES ('Nat', 12, '@njseeto', 'other');
+INSERT INTO mentors (name, cohort, gitter_handle, other) VALUES ('Nat', 12, '@njseeto', 'other'), ('Sophie', 12, '@sophielevens', 'other'), ('Johanna', 12, '@johanna-hub', 'other');
 
 
 CREATE TABLE categories (
     id SERIAL PRIMARY KEY,
     mentors_id INTEGER REFERENCES mentors(id),
-    categories VARCHAR(50)
+    category1 VARCHAR(50),
+    category2 VARCHAR(50),
+    category3 VARCHAR(50),
+    category4 VARCHAR(50),
+    category5 VARCHAR(50)
 );
 
-INSERT INTO categories(mentors_id, categories) VALUES ('1', 'Current Student');
+INSERT INTO categories (mentors_id, category1, category2, category3, category4, category5) VALUES (1, 'Current Student', null, 'Life at FAC', null, 'Internship'), (2, 'Current Student', 'Career', null, null, 'Internship'), (3, null, null, 'Life at FAC', 'Alumni', null);
 
 COMMIT;
