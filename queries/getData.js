@@ -10,6 +10,8 @@ const getData = , cb => {
   });
 };
 
+SELECT mentors.name, mentors.gitter_handle, categories.selected_category1, categories.selected_category2 FROM mentors INNER JOIN categories ON categories.mentors_id = mentors.id
+
 const everyone = 'SELECT name, cohort, gitter_handle, other, categories FROM mentors INNER JOIN categories ON mentors.id = categories.mentors_id';
 
 const alumni = 'SELECT name, gitter_handle FROM mentors INNER JOIN categories ON categories.mentors_id = mentors.id WHERE categories.category4 = 'Alumni'';
