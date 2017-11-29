@@ -1,0 +1,23 @@
+{
+  "name": "talkfactome",
+  "version": "1.0.0",
+  "description": "Fatimat, Johanna, Sophie and Natalie",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fac-12/talkFacToMe.git"
+  },
+  "author": "fatimat, sophie, johanna and natalie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fac-12/talkFacToMe/issues"
+  },
+  "homepage": "https://github.com/fac-12/talkFacToMe#readme",
+  "dependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
