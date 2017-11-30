@@ -26,23 +26,20 @@
     </div>
   </section>
 
-  <section class="formSection" id="myModal">
-    <div class="formSection__div">
-      <span class="close">&times;</span>
-      <h1> Alumni or current student? Enter your details below to register in the database. </h1>
-      <form class="formSection__form" id="addMe_Form" action="/addMe" method="post">
-        <label class="formSection__labels" for="name"><input type="text" id="name"name="personName" class="formSection__inputs" placeholder="Name"></label>
-        <label class="formSection__labels" for="cohort"><input type="number" id="cohort" name="cohortNumber" class="formSection__inputs" placeholder="Cohort Number"></label>
-        <label class="formSection__labels" for="gitter"><input type="text" id="gitter" name="gitterHandle" class="formSection__inputs" placeholder="Gitter Handle"></label>
-        <label class="formSection__labels" for="info"><input type="text" id="info" name="talkInfo" class="formSection__inputs" placeholder="Talk to me about"></label>
-        <!-- <label class="formSection__labels" for="category1"> Freelance <input type="checkbox" id="category1" name="category1" class="formSection__inputs"></label>
-      <label class="formSection__labels" for="category2"> Life at FAC <input type="checkbox" id="category2" name="category2" class="formSection__inputs"></label>
-      <label class="formSection__labels" for="category3"> Working after FAC<input type="checkbox" id="category3" name="category3" class="formSection__inputs"></label>
-      <label class="formSection__labels" for="category4"> Prerequisites <input type="checkbox" id="category4" name="category4" class="formSection__inputs"></label>
-      <label class="formSection__labels" for="category5"> Being a parent coder <input type="checkbox" id="category5" name="category5" class="formSection__inputs"></label> -->
-        <input  class="formSection__btn" type="submit" id="submitform" name="" value="Add Me">
-      </form>
-    </div>
+  <section class="formSection">
+    <h1> Alumni or current student? Enter your details below to register in the database. </h1>
+    <form class="formSection__form" id="addMe_Form" action="/addMe" method="post">
+      <label class="formSection__labels" for="name">Name: <input type="text" id="name"name="personName"></label>
+      <label class="formSection__labels" for="cohort"> Cohort Number: <input type="number" id="cohort" name="cohortNumber" class="formSection__inputs"></label>
+      <label class="formSection__labels" for="gitter"> Gitter handle: <input type="text" id="gitter" name="gitterHandle" class="formSection__inputs"></label>
+      <label class="formSection_labels" for="info">Talk to me about:<input type="text" id="info" name="talkInfo" class="formSection__inputs"></label>
+      <label class="formSection__labels" for="category1"> Life at FAC <input type="checkbox" id="category1" name="category1" class="formSection__inputs"></label>
+      <label class="formSection__labels" for="category2"> Freelancing <input type="checkbox" id="category2" name="category2" class="formSection__inputs"></label>
+      <label class="formSection__labels" for="category3"> Internship <input type="checkbox" id="category3" name="category3" class="formSection__inputs"></label>
+      <label class="formSection__labels" for="category4"> Junior Dev <input type="checkbox" id="category4" name="category4" class="formSection__inputs"></label>
+      <label class="formSection__labels" for="category5"> Mentoring <input type="checkbox" id="category5" name="category5" class="formSection__inputs"></label>
+      <input type="submit" id="submitform" name="" value="Add Me">
+    </form>
   </section>
 
   <section class="all-names" id="displayPeople">

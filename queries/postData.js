@@ -15,4 +15,20 @@ const postData = (name, cohortNumber, gitterHandle, talkInfo, cb) => {
   );
 };
 
-module.exports = postData;
+const categoryData = (category1, cb) => {
+  databaseConnection.query(
+    'INSERT INTO categories (selected_category) VALUES ($1)',
+    // ???mentors.id
+    [category1],
+    (err, res) => {
+      if (err) {
+        return cb(err);
+      } else {
+        console.log('categoryData running');
+        cb(null, res);
+      }
+    }
+  );
+};
+
+module.exports = { postData, categoryData };

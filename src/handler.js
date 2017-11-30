@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const querystring = require('querystring');
-const postData = require('../queries/postData');
+const { postData, categoryData } = require('../queries/postData');
 const getData = require('../queries/getData');
 
 const homeHandler = (request, response) => {
@@ -55,10 +55,30 @@ const addMe = (request, response, endpoint) => {
     const cohortNumber = allData.cohortNumber;
     const gitterHandle = allData.gitterHandle;
     const talkInfo = allData.talkInfo;
+    const category1 = "Life at FAC";
+    // const category2 = null;
+    // const category3 = null;
+    // const category4 = null;
+    // const category5 = null;
+
     console.log("name ", name)
     console.log("cohortNumber ", cohortNumber);
     console.log("gitterHandle ", gitterHandle);
     console.log("talkInfo ", talkInfo);
+    console.log("category1: ", category1);
+    // console.log("category2: ", category2);
+    // console.log("category3: ", category3);
+    // console.log("category4: ", category4);
+    // console.log("category5: ", category5); 
+    
+    categoryData(category1, (err, res) => {
+      if (err) {
+        response.writeHead(500, 'Content-Type:text/html');
+        response.end('<h1>Sorry, there was a problem adding that category</h1>');
+        console.log(err)
+      }
+    });
+
     postData(name, cohortNumber, gitterHandle, talkInfo, (err, res) => {
       if (err) {
         response.writeHead(500, 'Content-Type:text/html');

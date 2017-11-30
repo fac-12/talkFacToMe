@@ -25,9 +25,13 @@ INSERT INTO categorylist (categoryname, categoryid) VALUES ('Life at FAC', 1), (
 CREATE TABLE categories (
     id SERIAL PRIMARY KEY,
     mentors_id INTEGER REFERENCES mentors(id),
-    selected_category VARCHAR(50)
+    selected_category1 VARCHAR(50),
+    selected_category2 VARCHAR(50),
+    selected_category3 VARCHAR(50),
+    selected_category4 VARCHAR(50),
+    selected_category5 VARCHAR(50)
 );
 
-INSERT INTO categories (mentors_id, selected_category) VALUES ((SELECT id FROM mentors WHERE name = 'Nat'), (SELECT categoryname FROM categorylist WHERE categoryid = 5)), ((SELECT id FROM mentors WHERE name = 'Sophie'), (SELECT categoryname FROM categorylist WHERE categoryid = 2)), ((SELECT id FROM mentors WHERE name = 'Johanna'), (SELECT categoryname FROM categorylist WHERE categoryid = 3)), ((SELECT id FROM mentors WHERE name = 'Nat'), (SELECT categoryname FROM categorylist WHERE categoryid = 1)), ((SELECT id FROM mentors WHERE name = 'Sophie'), (SELECT categoryname FROM categorylist WHERE categoryid = 3));
+INSERT INTO categories (mentors_id, selected_category1, selected_category2, selected_category3, selected_category4, selected_category5) VALUES ((SELECT id FROM mentors WHERE name = 'Nat'), 'Life at FAC', null, null, null, null), ((SELECT id FROM mentors WHERE name = 'Sophie'), null, 'Freelancing', null, null, null), ((SELECT id FROM mentors WHERE name = 'Johanna'), null, null, null, null, 'Internship');
 
 COMMIT;
