@@ -6,7 +6,8 @@ const sql = fs.readFileSync(`${__dirname}/db_build.sql`).toString();
 dbConnection.query(sql, (err, res) => {
     if(err) throw err;
     else {
-    console.log("Table created", res)};
+    console.log("Table created", res);
+  }
 });
 
 const runDbBuild = cb => {

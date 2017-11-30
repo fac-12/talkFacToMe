@@ -21,5 +21,10 @@
     "env2": "^2.2.0",
     "nodemon": "^1.12.1",
     "pg": "^7.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0"
   }
 }
