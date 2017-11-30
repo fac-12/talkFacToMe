@@ -16,8 +16,8 @@ const router = (request, response) => {
     viewAll(request, response, endpoint)
   }
   else {
-    response.writeHead(500, {"Content-Type": "text/plain"});
-    response.end("Server error!");
+    response.writeHead(404, {"Content-Type": "text/plain"});
+    response.end("unknown uri");
   }
 }
 
