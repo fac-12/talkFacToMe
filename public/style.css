@@ -1,7 +1,12 @@
 body{
   background-color: red;
 }
-label{
+
+.formSection, .all-names__btn {
+  display: none;
+}
+
+.formsection__label {
   display: block;
   padding: 10px;
 }
