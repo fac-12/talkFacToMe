@@ -20,16 +20,14 @@ CREATE TABLE categorylist (
   categoryid INTEGER
 );
 
-INSERT INTO categorylist (categoryname, categoryid) VALUES ('Current Student', 1), ('Life at FAC', 2), ('Career', 3), ('Alumni', 4), ('Internship', 5);
+INSERT INTO categorylist (categoryname, categoryid) VALUES ('Life at FAC', 1), ('Freelancing', 2), ('Internship', 3), ('Junior Dev', 4), ('Support', 5);
 
 CREATE TABLE categories (
     id SERIAL PRIMARY KEY,
     mentors_id INTEGER REFERENCES mentors(id),
-    selected_category1 VARCHAR(50),
-    selected_category2 VARCHAR(50),
-    selected_category3 VARCHAR
+    selected_category VARCHAR(50)
 );
 
-INSERT INTO categories (mentors_id, selected_category1, selected_category2, selected_category3) VALUES ((SELECT id FROM mentors WHERE name = 'Nat'), (SELECT categoryname FROM categorylist WHERE categoryid = 5), (SELECT categoryname FROM categorylist WHERE categoryid = 1), null), ((SELECT id FROM mentors WHERE name = 'Sophie'), (SELECT categoryname FROM categorylist WHERE categoryid = 2), null, null), ((SELECT id FROM mentors WHERE name = 'Johanna'), (SELECT categoryname FROM categorylist WHERE categoryid = 3), null, null);
+INSERT INTO categories (mentors_id, selected_category) VALUES ((SELECT id FROM mentors WHERE name = 'Nat'), (SELECT categoryname FROM categorylist WHERE categoryid = 5)), ((SELECT id FROM mentors WHERE name = 'Sophie'), (SELECT categoryname FROM categorylist WHERE categoryid = 2)), ((SELECT id FROM mentors WHERE name = 'Johanna'), (SELECT categoryname FROM categorylist WHERE categoryid = 3)), ((SELECT id FROM mentors WHERE name = 'Nat'), (SELECT categoryname FROM categorylist WHERE categoryid = 1)), ((SELECT id FROM mentors WHERE name = 'Sophie'), (SELECT categoryname FROM categorylist WHERE categoryid = 3));
 
 COMMIT;
