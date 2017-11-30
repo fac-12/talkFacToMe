@@ -56,11 +56,20 @@ const addMe = (request, response, endpoint) => {
     const gitterHandle = allData.gitterHandle;
     const talkInfo = allData.talkInfo;
     const category1 = "Life at FAC";
+    // const category2 = null;
+    // const category3 = null;
+    // const category4 = null;
+    // const category5 = null;
+
     console.log("name ", name)
     console.log("cohortNumber ", cohortNumber);
     console.log("gitterHandle ", gitterHandle);
     console.log("talkInfo ", talkInfo);
     console.log("category1: ", category1);
+    // console.log("category2: ", category2);
+    // console.log("category3: ", category3);
+    // console.log("category4: ", category4);
+    // console.log("category5: ", category5); 
     
     categoryData(category1, (err, res) => {
       if (err) {
