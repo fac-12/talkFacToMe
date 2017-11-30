@@ -11,7 +11,7 @@ dbConnection.query(sql, (err, res) => {
 });
 
 const runDbBuild = cb => {
- dbConnection,query(sql, (err, res) => {
+ dbConnection.query(sql, (err, res) => {
      if (err) return cb(err);
      cb(null, res);
  });
