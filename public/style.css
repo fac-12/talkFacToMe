@@ -10,7 +10,7 @@ body{
   text-align: center;
   width: 100%;
 }
-.formSection, .all-names__btn {
+.formSection{
   display: none;
 }
 .all-names{
@@ -20,6 +20,9 @@ body{
 
 .all-names__people{
   border: 2px solid black;
+}
+.all-names{
+  display: none;
 }
 .formSection {
     display: none;
@@ -74,7 +77,7 @@ body{
   font-size: 1rem;
   width: inherit;
 }
-.formSection__btn, .about__view-btn, .about__join-btn, .all-names_btn{
+.formSection__btn, .about__view-btn, .about__join-btn, .all-names__btn{
   margin-top: 0.9rem;
   padding: 0.7rem;
   font-size: 1rem;

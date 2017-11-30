@@ -6,6 +6,13 @@ var viewAllBtn = document.getElementById('viewAllBtn');
 var displayPeople = document.getElementById('displayPeople');
 var aboutSection = document.getElementById('about');
 var joinDatabaseBtn = document.getElementById('joindatabase');
+var allNames = document.getElementsByClassName("all-names")[0];
+var allNamesBtn = document.getElementsByClassName("all-names__btns")[0];
+var facBtn = document.getElementById('facBtn');
+var freelanceBtn = document.getElementById('freelanceBtn');
+var internBtn = document.getElementById('internBtn');
+var juniorBtn = document.getElementById('juniorBtn');
+var mentorBtn = document.getElementById('mentorBtn')
 
 
 function request(url, cb) {
@@ -23,8 +30,33 @@ function request(url, cb) {
 
 viewAllBtn.addEventListener("click", function() {
   aboutSection.style.display = 'none';
-  homeBtn.style.display = 'block';
+  allNames.style.display = 'block';
   var url = "/viewAll";
+  request(url, updateDom);
+})
+
+facBtn.addEventListener("click", function() {
+  var url = "/fac";
+  request(url, updateDom);
+})
+
+freelanceBtn.addEventListener("click", function() {
+  var url = "/freelance";
+  request(url, updateDom);
+})
+
+internBtn.addEventListener("click", function() {
+  var url = "/internship";
+  request(url, updateDom);
+})
+
+juniorBtn.addEventListener("click", function() {
+  var url = "/juniordev";
+  request(url, updateDom);
+})
+
+mentorBtn.addEventListener("click", function() {
+  var url = "/mentor";
   request(url, updateDom);
 })
 
