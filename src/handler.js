@@ -118,7 +118,7 @@ const viewAll = (request, response, endpoint) => {
     } else {
       let output = JSON.stringify(res);
       response.writeHead(200, {
-        'content-type': 'application/json';
+        'content-type': 'application/json'
       });
       response.end(output);
     }
