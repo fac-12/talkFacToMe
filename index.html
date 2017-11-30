@@ -14,16 +14,18 @@
     <h1 class="heading__title">Talk FAC To Me</h1>
   </header>
 
-  <section class="about">
+  <section class="about" id="about">
     <h3 class="about__heading"> About section </h3>
-    <p class="about__info"> Intro... </p>
+    <p class="about__info"> Talk FAC To Me is a platform where you can find current students and past alumni of Founders & Coders London. Search our directory to connect with people who are happy to share advice and knowledge on topics such as careers, lifestyle, practicalities of the course etc. </p>
+    <p> </p>
     <div class="about__btn-div">
       <button type="button" name="View All" id="viewAllBtn" class="about__view-btn"> View all </button>
+      <button type="button" name="Join Database" id="joindatabase" class="about__join-btn"> Join Database </button>
     </div>
   </section>
 
   <section class="formSection">
-    <h1> Form </h1>
+    <h1> Alumni or current student? Enter your details below to register in the database. </h1>
     <form class="formSection__form" id="addMe_Form" action="/addMe" method="post">
       <label class="formSection__labels" for="name">Name: <input type="text" id="name"name="personName"></label>
       <label class="formSection__labels" for="cohort"> Cohort Number: <input type="number" id="cohort" name="cohortNumber" class="formSection__inputs"></label>
@@ -40,6 +42,7 @@
 
   <section class="all-names" id="displayPeople">
 
+    <button type="button" name="home-button" id="homeBtn" class="all-names__btn"> Home </button>
   </section>
 </body>
 <footer> </footer>
