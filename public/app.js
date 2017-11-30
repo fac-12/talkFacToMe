@@ -6,7 +6,7 @@ function request(url, cb){
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function(){
     if(xhr.status === 200 && xhr.readyState === 4){
-      var result = xhr.responseText;
+      var result = JSON.parse(xhr.responseText);
       cb(result)
 
     }
@@ -21,5 +21,5 @@ viewAllBtn.addEventListener("click", function(){
 })
 
 function updateDom(result){
-  console.log("done")
+  console.log(result)
 }
