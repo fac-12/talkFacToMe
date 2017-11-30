@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Talk FAC To Me">
+  <meta name="author" content="Sophie, Fatimat, Johanna, Natalie">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./public/style.css">
+  <title>Talk FAC To Me</title>
+</head>
+
+<body>
+  <header class="heading">
+    <h1 class="heading__title">Talk FAC To Me</h1>
+  </header>
+  
+  <section class="about">
+    <h3 class="about__heading"> About section </h3>
+    <p class="about__info"> Intro... </p>
+    <div class="about__btn-div">
+      <button type="button" name="View All" id="viewAllBtn" class="about__view-btn"> View all </button>
+    </div>
+  </section>
+
+  <section class="formSection">
+    <h1> Form </h1>
+    <form class="formSection__form" id="addMe_Form" action="/addMe" method="post">
+      <label class="formSection__labels" for="name">Name: <input type="text" id="name"name="personName"></label>
+      <label class="formSection__labels" for="cohort"> Cohort Number: <input type="number" id="cohort" name="cohortNumber" class="formSection__inputs"></label>
+      <label class="formSection__labels" for="gitter"> Gitter handle: <input type="text" id="gitter" name="gitterHandle" class="formSection__inputs"></label>
+      <label class="formSection__labels" for="category1"> Freelance <input type="checkbox" id="category1" name="category1" class="formSection__inputs"></label>
+      <label class="formSection__labels" for="category2"> Life at FAC <input type="checkbox" id="category2" name="category2" class="formSection__inputs"></label>
+      <label class="formSection__labels" for="category3"> Working after FAC<input type="checkbox" id="category3" name="category3" class="formSection__inputs"></label>
+      <label class="formSection__labels" for="category4"> Prerequisites <input type="checkbox" id="category4" name="category4" class="formSection__inputs"></label>
+      <label class="formSection__labels" for="category5"> Being a parent coder <input type="checkbox" id="category5" name="category5" class="formSection__inputs"></label>
+      <input type="submit" id="submitform" name="" value="Add Me">
+    </form>
+  </section>
+
+</body>
+<footer> </footer>
+<script type="text/javascript" src="./public/app.js">
+</script>
+
+</html>
