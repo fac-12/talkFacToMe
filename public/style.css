@@ -1,0 +1,7 @@
+body{
+  background-color: red;
+}
+label{
+  display: block;
+  padding: 10px;
+}
