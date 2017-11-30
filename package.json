@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/fac-12/talkFacToMe#readme",
   "dependencies": {
-    "nodemon": "^1.12.1"
+    "env2": "^2.2.0",
+    "nodemon": "^1.12.1",
+    "pg": "^7.4.0"
   }
 }

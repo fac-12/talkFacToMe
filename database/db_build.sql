@@ -12,7 +12,7 @@ CREATE TABLE mentors (
     other TEXT
 );
 
-INSERT INTO mentors (name, cohort, gitter_handle, other) VALUES ('Nat', 12, '@njseeto', 'other'), ('Sophie', 12, '@sophielevens', 'other'), ('Johanna', 12, '@johanna-hub', 'other');
+INSERT INTO mentors (name, cohort, gitter_handle, other) VALUES ('Nat', 12, '@njseeto', 'Life at FAC'), ('Sophie', 12, '@sophielevens', 'Internship'), ('Johanna', 12, '@johanna-hub', 'Life at FAC');
 
 CREATE TABLE categorylist (
   id SERIAL PRIMARY KEY,

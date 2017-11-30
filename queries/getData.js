@@ -1,7 +1,7 @@
 const databaseConnection = require('../database/db_connections.js');
 
-const getData = , cb => {
-  databaseConnection.query('SELECT * FROM mentors', (err, res) => {
+const getData = cb => {
+  databaseConnection.query('SELECT mentors.name, mentors.gitter_handle, categories.selected_category FROM mentors INNER JOIN categories ON categories.mentors_id = mentors.id', (err, res) => {
     if (err) {
       cb(err);
     } else {
@@ -10,8 +10,7 @@ const getData = , cb => {
   });
 };
 
-SELECT mentors.name, mentors.gitter_handle, categories.selected_category FROM mentors INNER JOIN categories ON categories.mentors_id = mentors.id
-
+// SELECT mentors.name, mentors.gitter_handle, categories.selected_category FROM mentors INNER JOIN categories ON categories.mentors_id = mentors.id
 //old queries from the two table schema
 // const alumni = 'SELECT name, gitter_handle FROM mentors INNER JOIN categories ON categories.mentors_id = mentors.id WHERE categories.category4 = 'Alumni'';
 //

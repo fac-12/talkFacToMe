@@ -4,7 +4,7 @@ const url = require('url');
 // config.env is used to store sensitive information
 require('env2')('./config.env');
 
-let !DB_URL = process.env.DB_URL;
+let DB_URL = process.env.DB_URL;
 if(process.env.NODE.ENV === 'test'){
     DB_URL = process.env.TEST_DB_URL;
 }
@@ -24,7 +24,7 @@ const options = {
     max: process.env.DB_MAX_CONNECTIONS || 2,
     user: username,
     password,
-    
+
     // if you want to access a remote server use ssl (a secure connection) otherwise use local host
     ssl: params.hostname !== 'localhost',
 };

@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const querystring = require('querystring');
+const postData = require('../queries/postData')
 
 const homeHandler = (request, response) => {
   let filePath = path.join(__dirname, '..', 'index.html');
@@ -52,18 +53,18 @@ const addMe = (request, response, endpoint) => {
     const name = allData.personName;
     const cohortNumber = allData.cohortNumber;
     const gitterHandle = allData.gitterHandle;
-    const category = allData.category1;
+    const talkInfo = allData.talkInfo;
     console.log("name ", name)
     console.log("cohortNumber ", cohortNumber);
     console.log("gitterHandle ", gitterHandle);
-    console.log("category ", category);
-    // postData(name, cohortNumber, gitterHandle, (err, res) => {
-    //   if (err) {
-    //     response.writeHead(500, 'Content-Type:text/html');
-    //     response.end('<h1>Sorry, there was a problem adding that user</h1>');
-    //     console.log(err)
-    //   }
-    // });
+    console.log("talkInfo ", talkInfo);
+    postData(name, cohortNumber, gitterHandle, talkInfo, (err, res) => {
+      if (err) {
+        response.writeHead(500, 'Content-Type:text/html');
+        response.end('<h1>Sorry, there was a problem adding that user</h1>');
+        console.log(err)
+      }
+    });
     response.writeHead(200, {
       "Content-Type": "text/html"
     });
