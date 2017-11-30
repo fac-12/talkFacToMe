@@ -26,10 +26,12 @@
     </div>
   </section>
 
-  <section class="formSection">
-    <h1> Alumni or current student? Enter your details below to register in the database. </h1>
-    <form class="formSection__form" id="addMe_Form" action="/addMe" method="post">
-      <label class="formSection__labels" for="name">Name: <input type="text" id="name"name="personName"></label>
+  <section class="formSection" id="myModal">
+   <div class="formSection__div">
+      <span class="close">&times;</span>
+      <h1> Alumni or current student? Enter your details below to register in the database. </h1>
+      <form class="formSection__form" id="addMe_Form" action="/addMe" method="post">
+      <label class="formSection__labels" for="name">Name: <input type="text" id="name"name="personName" class="formSection__inputs"></label>
       <label class="formSection__labels" for="cohort"> Cohort Number: <input type="number" id="cohort" name="cohortNumber" class="formSection__inputs"></label>
       <label class="formSection__labels" for="gitter"> Gitter handle: <input type="text" id="gitter" name="gitterHandle" class="formSection__inputs"></label>
       <label class="formSection_labels" for="info">Talk to me about:<input type="text" id="info" name="talkInfo" class="formSection__inputs"></label>
@@ -40,6 +42,7 @@
       <label class="formSection__labels" for="category5"> Mentoring <input type="checkbox" id="category5" name="category5" class="formSection__inputs"></label>
       <input type="submit" id="submitform" name="" value="Add Me">
     </form>
+    </div>
   </section>
 
   <section class="all-names" id="displayPeople">
