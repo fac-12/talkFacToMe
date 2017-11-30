@@ -20,7 +20,7 @@ CREATE TABLE categorylist (
   categoryid INTEGER
 );
 
-INSERT INTO categorylist (categoryname, categoryid) VALUES ('Life at FAC', 1), ('Freelancing', 2), ('Internship', 3), ('Junior Dev', 4), ('Support', 5);
+INSERT INTO categorylist (categoryname, categoryid) VALUES ('Life at FAC', 1), ('Freelancing', 2), ('Internship', 3), ('Junior Dev', 4), ('Mentoring', 5);
 
 CREATE TABLE categories (
     id SERIAL PRIMARY KEY,

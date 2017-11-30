@@ -13,7 +13,7 @@ var freelanceBtn = document.getElementById('freelanceBtn');
 var internBtn = document.getElementById('internBtn');
 var juniorBtn = document.getElementById('juniorBtn');
 var mentorBtn = document.getElementById('mentorBtn')
-
+var category = document.getElementById('category');
 
 function request(url, cb) {
   var xhr = new XMLHttpRequest();
@@ -37,28 +37,52 @@ viewAllBtn.addEventListener("click", function() {
 
 facBtn.addEventListener("click", function() {
   var url = "/fac";
-  request(url, updateDom);
+  request(url, updateDomCategory);
 })
 
 freelanceBtn.addEventListener("click", function() {
   var url = "/freelance";
-  request(url, updateDom);
+  request(url, updateDomCategory);
 })
 
 internBtn.addEventListener("click", function() {
   var url = "/internship";
-  request(url, updateDom);
+  request(url, updateDomCategory);
 })
 
 juniorBtn.addEventListener("click", function() {
   var url = "/juniordev";
-  request(url, updateDom);
+  request(url, updateDomCategory);
 })
 
 mentorBtn.addEventListener("click", function() {
   var url = "/mentor";
-  request(url, updateDom);
+  request(url, updateDomCategory);
 })
+
+
+function updateDomCategory(result){
+  var allCategory = result.slice(0);
+  console.log(allCategory)
+  displayPeople.style.display = 'none';
+  allCategory.forEach(function(people) {
+    var peopleDiv = document.createElement("div");
+    peopleDiv.classList.add('all-names__people');
+    var peopleNameP = document.createElement("p");
+    peopleNameP.textContent = "Name: " + people.name
+    var peopleCohortNumP = document.createElement("p");
+    peopleCohortNumP.textContent = "Cohort Number: " + people.cohort;
+    var peopleGitterP = document.createElement("p");
+    peopleGitterP.textContent = "Gitter Handle: " + people.gitter_handle;
+    var peopleOtherP = document.createElement("p");
+    peopleOtherP.textContent = "Talk to me about: " + people.other;
+    peopleDiv.appendChild(peopleNameP);
+    peopleDiv.appendChild(peopleCohortNumP);
+    peopleDiv.appendChild(peopleGitterP);
+    peopleDiv.appendChild(peopleOtherP);
+    category.appendChild(peopleDiv);
+  })
+}
 
 function updateDom(result) {
   var allPeople = result.slice(0);
