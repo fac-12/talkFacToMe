@@ -4,7 +4,7 @@ console.log("hello world");
 
 var viewAllBtn = document.getElementById('viewAllBtn');
 var displayPeople = document.getElementById('displayPeople');
-
+var aboutSection = document.getElementById('about');
 function request(url, cb) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
@@ -19,6 +19,8 @@ function request(url, cb) {
 }
 
 viewAllBtn.addEventListener("click", function() {
+  aboutSection.style.display = 'none';
+  homeBtn.style.display = 'block';
   var url = "/viewAll";
   request(url, updateDom);
 })
@@ -44,3 +46,10 @@ function updateDom(result) {
     displayPeople.appendChild(peopleDiv);
   })
 }
+
+var homeBtn = document.getElementById('homeBtn');
+homeBtn.addEventListener("click", function() {
+  alert("okay");
+  aboutSection.style.display = "block";
+  displayPeople.style.display = "none";
+})
