@@ -23,5 +23,3 @@ module.exports = getData;
 // const life = 'SELECT name, gitter_handle FROM mentors INNER JOIN categories ON categories.mentors_id = mentors.id WHERE categories.category3 = 'Life at FAC'';
 //
 // const student = 'SELECT name, gitter_handle FROM mentors INNER JOIN categories ON categories.mentors_id = mentors.id WHERE categories.category1 = 'Current Student'';
-
-module.exports = getData;
