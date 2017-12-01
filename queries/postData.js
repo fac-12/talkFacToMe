@@ -1,9 +1,9 @@
 const databaseConnection = require('../database/db_connections.js');
 
-const postData = (name, cohortNumber, gitterHandle, category, cb) => {
+const postData = (name, cohortNumber, gitterHandle, category, talkInfo, cb) => {
   databaseConnection.query(
-    'INSERT INTO mentors (name, cohort, gitter_handle, other) VALUES ($1, $2, $3, $4)',
-    [name, cohortNumber, gitterHandle, category],
+    'INSERT INTO mentors (name, cohort, gitter_handle, category, other) VALUES ($1, $2, $3, $4, $5)',
+    [name, cohortNumber, gitterHandle, category, talkInfo],
     (err, res) => {
       if (err) {
         return cb(err);
