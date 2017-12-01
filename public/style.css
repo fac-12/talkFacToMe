@@ -1,14 +1,26 @@
 body{
-  background-color: white;
+  background: #2C3E50;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4CA1AF, #2C3E50);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4CA1AF, #2C3E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
   box-sizing: border-box;
 }
 
 .heading{
   text-align: center;
+  background-position: center;
+  color: white;
+  display: flex;
+  justify-content: center;
 }
 .about{
+  color: white;
   text-align: center;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .formSection{
   display: none;
@@ -16,10 +28,22 @@ body{
 .all-names{
   display: flex;
   flex-wrap: wrap;
+  text-align: center;
 }
-
+.all-names__peoplediv{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 80%;
+  flex-direction: column;
+  margin: 0 auto;
+}
 .all-names__people{
   border: 2px solid black;
+  margin: 1rem;
+  width: 95%;
+  background-color: white;
+  opacity: 0.7;
 }
 .all-names{
   display: none;
@@ -93,9 +117,19 @@ body{
 
 
 @media screen and (min-width: 600px){
+  .heading{
+    font-size: 2rem;
+  }
   .about{
     width: 70%;
     margin: 0 auto;
+    font-size: 1.2rem;
+  }
+  .all-names__peoplediv{
+    flex-direction: row;
+  }
+  .all-names__people{
+      width: 30%;
   }
   .formSection__labels{
     width: 75%;
