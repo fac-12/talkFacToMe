@@ -3,6 +3,7 @@
 console.log("hello world");
 
 var viewAllBtn = document.getElementById('viewAllBtn');
+var viewAll = document.getElementById('viewAll');
 var displayPeople = document.getElementById('displayPeople');
 var aboutSection = document.getElementById('about');
 var joinDatabaseBtn = document.getElementById('joindatabase');
@@ -34,6 +35,8 @@ viewAllBtn.addEventListener("click", function() {
   var url = "/viewAll";
   request(url, updateDom);
 })
+
+
 
 facBtn.addEventListener("click", function() {
   var url = "/fac";
@@ -117,6 +120,7 @@ function updateDom(result) {
 
   })
 }
+
 
 var homeBtn = document.getElementById('homeBtn');
 homeBtn.addEventListener("click", function() {
