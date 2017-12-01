@@ -74,11 +74,14 @@ function updateDomCategory(result){
     peopleCohortNumP.textContent = "Cohort Number: " + people.cohort;
     var peopleGitterP = document.createElement("p");
     peopleGitterP.textContent = "Gitter Handle: " + people.gitter_handle;
+    var peopleCategoryP = document.createElement("p");
+    peopleCategoryP.textContent = "Talk to me about: " + people.category;
     var peopleOtherP = document.createElement("p");
-    peopleOtherP.textContent = "Talk to me about: " + people.other;
+    peopleOtherP.textContent = "Additional info on: " + people.other;
     peopleDiv.appendChild(peopleNameP);
     peopleDiv.appendChild(peopleCohortNumP);
     peopleDiv.appendChild(peopleGitterP);
+    peopleDiv.appendChild(peopleCategoryP);
     peopleDiv.appendChild(peopleOtherP);
     category.appendChild(peopleDiv);
   })
@@ -96,13 +99,17 @@ function updateDom(result) {
     peopleCohortNumP.textContent = "Cohort Number: " + people.cohort;
     var peopleGitterP = document.createElement("p");
     peopleGitterP.textContent = "Gitter Handle: " + people.gitter_handle;
+    var peopleCategoryP = document.createElement("p");
+    peopleCategoryP.textContent = "Talk to me about: " + people.category;
     var peopleOtherP = document.createElement("p");
-    peopleOtherP.textContent = "Talk to me about: " + people.other;
+    peopleOtherP.textContent = "Additional info on: " + people.other;
     peopleDiv.appendChild(peopleNameP);
     peopleDiv.appendChild(peopleCohortNumP);
     peopleDiv.appendChild(peopleGitterP);
+    peopleDiv.appendChild(peopleCategoryP);
     peopleDiv.appendChild(peopleOtherP);
     displayPeople.appendChild(peopleDiv);
+
   })
 }
 
