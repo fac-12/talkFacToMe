@@ -35,11 +35,11 @@
       <label class="formSection__labels" for="cohort"> Cohort Number: <input type="number" id="cohort" name="cohortNumber" class="formSection__inputs" required></label>
       <label class="formSection__labels" for="gitter"> Gitter handle: <input type="text" id="gitter" name="gitterHandle" class="formSection__inputs" required></label>
       <p>Talk to me about (please only select one category):</p>
-      <label class="formSection__labels" for="category1"> Life at FAC <input type="checkbox" id="category1" name="category1" class="formSection__inputs"></label>
-      <label class="formSection__labels" for="category2"> Freelancing <input type="checkbox" id="category2" name="category2" class="formSection__inputs"></label>
-      <label class="formSection__labels" for="category3"> Internship <input type="checkbox" id="category3" name="category3" class="formSection__inputs"></label>
-      <label class="formSection__labels" for="category4"> Junior Dev <input type="checkbox" id="category4" name="category4" class="formSection__inputs"></label>
-      <label class="formSection__labels" for="category5"> Mentoring <input type="checkbox" id="category5" name="category5" class="formSection__inputs"></label>
+      <label class="formSection__labels" for="category1"> Life at FAC <input type="checkbox" id="1" name="category1" class="formSection__inputs" onclick="selectOnlyThis(this.id)"></label>
+      <label class="formSection__labels" for="category2"> Freelancing <input type="checkbox" id="2" name="category2" class="formSection__inputs" onclick="selectOnlyThis(this.id)"></label>
+      <label class="formSection__labels" for="category3"> Internship <input type="checkbox" id="3" name="category3" class="formSection__inputs" onclick="selectOnlyThis(this.id)"></label>
+      <label class="formSection__labels" for="category4"> Junior Dev <input type="checkbox" id="4" name="category4" class="formSection__inputs" onclick="selectOnlyThis(this.id)"></label>
+      <label class="formSection__labels" for="category5"> Mentoring <input type="checkbox" id="5" name="category5" class="formSection__inputs" onclick="selectOnlyThis(this.id)"></label>
       <label class="formSection_labels" for="info">Anything else you're happy to talk about?<input type="text" id="info" name="talkInfo" class="formSection__inputs"></label>
       <input type="submit" id="submitform" name="" value="Add Me">
     </form>
