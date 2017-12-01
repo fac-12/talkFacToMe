@@ -60,10 +60,15 @@ mentorBtn.addEventListener("click", function() {
   request(url, updateDomCategory);
 })
 
+function clearElement(element) {
+  while (element.childElementCount !== 0) {
+    element.removeChild(element.lastChild);
+  }
+}
 
 function updateDomCategory(result){
+    clearElement(category);
   var allCategory = result.slice(0);
-  console.log(allCategory)
   displayPeople.style.display = 'none';
   allCategory.forEach(function(people) {
     var peopleDiv = document.createElement("div");
@@ -115,9 +120,8 @@ function updateDom(result) {
 
 var homeBtn = document.getElementById('homeBtn');
 homeBtn.addEventListener("click", function() {
-  alert("okay");
   aboutSection.style.display = "block";
-  displayPeople.style.display = "none";
+  allNames.style.display = "none";
 })
 
 var modal = document.getElementById('myModal');
