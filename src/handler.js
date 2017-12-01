@@ -59,6 +59,7 @@ const addMe = (request, response, endpoint) => {
     const name = allData.personName;
     const cohortNumber = allData.cohortNumber;
     const gitterHandle = allData.gitterHandle;
+    const talkInfo = allData.talkInfo;
 
     let category = null;
     if (allData.category1){
@@ -77,6 +78,7 @@ const addMe = (request, response, endpoint) => {
     console.log("cohortNumber ", cohortNumber);
     console.log("gitterHandle ", gitterHandle);
     console.log("category1: ", category);
+    console.log("talkInfo: ", talkInfo);
 
     // categoryData(category, (err, res) => {
     //   if (err) {
@@ -86,7 +88,7 @@ const addMe = (request, response, endpoint) => {
     //   }
     // });
 
-    postData(name, cohortNumber, gitterHandle, category, (err, res) => {
+    postData(name, cohortNumber, gitterHandle, category, talkInfo, (err, res) => {
       if (err) {
         response.writeHead(500, 'Content-Type:text/html');
         response.end('<h1>Sorry, there was a problem adding that user</h1>');
