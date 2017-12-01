@@ -59,14 +59,14 @@ const addMe = (request, response, endpoint) => {
     const name = allData.personName;
     const cohortNumber = allData.cohortNumber;
     const gitterHandle = allData.gitterHandle;
-    
+
     let category = null;
     if (allData.category1){
       category = "Life at FAC";
     } else if (allData.category2){
-      category = "Internships";
-    } else if (allData.category3){
       category = "Freelancing";
+    } else if (allData.category3){
+      category = "Internship";
     } else if (allData.category4){
       category = "Junior Dev";
     } else if (allData.category5){
@@ -77,7 +77,7 @@ const addMe = (request, response, endpoint) => {
     console.log("cohortNumber ", cohortNumber);
     console.log("gitterHandle ", gitterHandle);
     console.log("category1: ", category);
-    
+
     // categoryData(category, (err, res) => {
     //   if (err) {
     //     response.writeHead(500, 'Content-Type:text/html');
