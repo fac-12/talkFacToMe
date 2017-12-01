@@ -13,7 +13,7 @@ CREATE TABLE mentors (
     other TEXT
 );
 
-INSERT INTO mentors (name, cohort, gitter_handle, category, other) VALUES ('Nat', 12, '@njseeto', 'Life at FAC', 'Happy to talk about career changes'), ('Sophie', 12, '@sophielevens', 'Internship', 'Adjusting to professional role after FAC'), ('Johanna', 12, '@johanna-hub', 'Life at FAC', 'Happy to talk about doing FAC with kids');
+INSERT INTO mentors (name, cohort, gitter_handle, category, other) VALUES ('Nat', 12, '@njseeto', 'Life at FAC', 'Career changes'), ('Sophie', 12, '@sophielevens', 'Internship', 'Adjusting to professional role after FAC'), ('Johanna', 12, '@johanna-hub', 'Freelancing', 'Doing FAC with kids'), ('Fatimat', 12, '@gbaja', 'Junior Dev', 'Work-life balance'), ('James', 11, '@james', 'Mentoring', 'Graduate projects') ;
 
 -- CREATE TABLE categorylist (
 --   id SERIAL PRIMARY KEY,
