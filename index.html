@@ -41,7 +41,7 @@
       <label class="formSection__labels" for="category4"> Junior Dev <input type="checkbox" id="4" name="category4" class="formSection__inputs" onclick="selectOnlyThis(this.id)"></label>
       <label class="formSection__labels" for="category5"> Mentoring <input type="checkbox" id="5" name="category5" class="formSection__inputs" onclick="selectOnlyThis(this.id)"></label>
       <label class="formSection_labels" for="info">Anything else you're happy to talk about?<input type="text" id="info" name="talkInfo" class="formSection__inputs"></label>
-      <input type="submit" id="submitform" name="" value="Add Me">
+      <input type="submit" id="submitform" name="" value="Add Me" class="formSection__submit-btn">
     </form>
     </div>
   </section>
@@ -50,15 +50,14 @@
   <div class="all-names__btns">
     <p class="all-names__btns__text"> Show mentors that I can talk to about </p>
     <button type="button" name="home-button" id="homeBtn" class="all-names__btn"> Home </button>
+    <button type="button" name="View All" id="viewAll" class="about__view-btn"> View all </button>
     <button type="button" name="category1" id="facBtn" class="all-names__btn"> Life at FAC</button>
     <button type="button" name="category1" id="freelanceBtn" class="all-names__btn"> Freelance </button>
     <button type="button" name="category1" id="internBtn" class="all-names__btn"> Internship</button>
     <button type="button" name="category1" id="juniorBtn" class="all-names__btn">Junior Dev </button>
     <button type="button" name="category1" id="mentorBtn" class="all-names__btn">Mentor</button>
   </div>
-  <div class="all-names__peoplediv" id="displayPeople">
-  </div>
-  <div id="category" class="all-names__categories"></div>
+  <div class="all-names__peoplediv" id="displayPeople"></div>
   </section>
 </body>
 <footer> </footer>

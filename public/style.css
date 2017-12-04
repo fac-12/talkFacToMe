@@ -30,7 +30,7 @@ body{
   flex-wrap: wrap;
   text-align: center;
 }
-.all-names__peoplediv, .all-names__categories{
+.all-names__peoplediv{
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -106,7 +106,7 @@ body{
   font-size: 1rem;
   width: inherit;
 }
-.formSection__btn, .about__view-btn, .about__join-btn, .all-names__btn{
+.formSection__btn, .about__view-btn, .about__join-btn, .all-names__btn, .formSection__submit-btn{
   margin-top: 0.9rem;
   padding: 0.7rem;
   font-size: 1rem;
