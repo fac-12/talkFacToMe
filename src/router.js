@@ -1,4 +1,4 @@
-const {homeHandler, staticHandler, addMe, viewAll, facLife, freelance, internship, juniorDev, mentor} = require('./handler');
+const {homeHandler, staticHandler, addMe, viewAll, facLife, freelance, internship, juniorDev, mentor, register} = require('./handler');
 
 const router = (request, response) => {
   const endpoint = request.url;
@@ -28,6 +28,9 @@ const router = (request, response) => {
   }
   else if(endpoint.indexOf('/mentor') !== -1){
     mentor(request, response, endpoint)
+  }
+  else if(endpoint.indexOf('/register') !== -1){
+    register(request, response, endpoint)
   }
   else {
     response.writeHead(404, {"Content-Type": "text/plain"});
