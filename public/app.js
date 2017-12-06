@@ -14,7 +14,8 @@ var freelanceBtn = document.getElementById('freelanceBtn');
 var internBtn = document.getElementById('internBtn');
 var juniorBtn = document.getElementById('juniorBtn');
 var mentorBtn = document.getElementById('mentorBtn')
-var category = document.getElementById('category');
+var viewAllInList = document.getElementById('viewAll');
+var homeBtn = document.getElementById('homeBtn');
 
 function request(url, cb) {
   var xhr = new XMLHttpRequest();
@@ -41,29 +42,39 @@ viewAllBtn.addEventListener("click", function() {
   request(url, updateDom);
 })
 
+homeBtn.addEventListener("click", function() {
+  aboutSection.style.display = "block";
+  allNames.style.display = "none";
+})
+
+viewAllInList.addEventListener("click", function() {
+  var url = "/viewAll";
+  request(url, updateDom);
+})
+
 facBtn.addEventListener("click", function() {
   var url = "/fac";
-  request(url, updateDomCategory);
+  request(url, updateDom);
 })
 
 freelanceBtn.addEventListener("click", function() {
   var url = "/freelance";
-  request(url, updateDomCategory);
+  request(url, updateDom);
 })
 
 internBtn.addEventListener("click", function() {
   var url = "/internship";
-  request(url, updateDomCategory);
+  request(url, updateDom);
 })
 
 juniorBtn.addEventListener("click", function() {
   var url = "/juniordev";
-  request(url, updateDomCategory);
+  request(url, updateDom);
 })
 
 mentorBtn.addEventListener("click", function() {
   var url = "/mentor";
-  request(url, updateDomCategory);
+  request(url, updateDom);
 })
 
 function clearElement(element) {
@@ -72,35 +83,9 @@ function clearElement(element) {
   }
 }
 
-function updateDomCategory(result){
-  clearElement(category);
-  var allCategory = result.slice(0);
-  displayPeople.style.display = 'none';
-  allCategory.forEach(function(people) {
-    var peopleDiv = document.createElement("div");
-    peopleDiv.classList.add('all-names__people');
-    var peopleNameP = document.createElement("p");
-    peopleNameP.textContent = "Name: " + people.name
-    var peopleCohortNumP = document.createElement("p");
-    peopleCohortNumP.textContent = "Cohort Number: " + people.cohort;
-    var peopleGitterP = document.createElement("p");
-    peopleGitterP.textContent = "Gitter Handle: " + people.gitter_handle;
-    var peopleCategoryP = document.createElement("p");
-    peopleCategoryP.textContent = "Talk to me about: " + people.string_agg;
-    var peopleOtherP = document.createElement("p");
-    peopleOtherP.textContent = "Additional info on: " + people.other;
-    peopleDiv.appendChild(peopleNameP);
-    peopleDiv.appendChild(peopleCohortNumP);
-    peopleDiv.appendChild(peopleGitterP);
-    peopleDiv.appendChild(peopleCategoryP);
-    peopleDiv.appendChild(peopleOtherP);
-    category.appendChild(peopleDiv);
-  })
-}
-
 function updateDom(result) {
+  clearElement(displayPeople)
   var allPeople = result.slice(0);
-  console.log(allPeople)
   allPeople.forEach(function(people) {
     var peopleDiv = document.createElement("div");
     peopleDiv.classList.add('all-names__people');
@@ -123,13 +108,6 @@ function updateDom(result) {
   })
 }
 
-
-var homeBtn = document.getElementById('homeBtn');
-homeBtn.addEventListener("click", function() {
-  aboutSection.style.display = "block";
-  allNames.style.display = "none";
-})
-
 var modal = document.getElementById('myModal');
 
 var span = document.getElementsByClassName("close")[0];
@@ -151,11 +129,11 @@ window.onclick = function(event) {
     }
 }
 
-//check only one checkbox
-function selectOnlyThis(id) {
-    for (var i = 1;i <= 5; i++)
-    {
-        document.getElementById(i).checked = false;
-    }
-    document.getElementById(id).checked = true;
-}
+// //check only one checkbox
+// function selectOnlyThis(id) {
+//     for (var i = 1;i <= 5; i++)
+//     {
+//         document.getElementById(i).checked = false;
+//     }
+//     document.getElementById(id).checked = true;
+// }
