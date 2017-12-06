@@ -79,14 +79,6 @@ const addMe = (request, response, endpoint) => {
     console.log("categoryArray: ", category);
     console.log("talkInfo: ", talkInfo);
 
-    // categoryData(category, (err, res) => {
-    //   if (err) {
-    //     response.writeHead(500, 'Content-Type:text/html');
-    //     response.end('<h1>Sorry, there was a problem adding that category</h1>');
-    //     console.log(err)
-    //   }
-    // });
-
     postData(name, cohortNumber, gitterHandle, category, talkInfo, (err, res) => {
       if (err) {
         response.writeHead(500, 'Content-Type:text/html');
@@ -110,6 +102,48 @@ const addMe = (request, response, endpoint) => {
       }
     });
   })
+}
+
+// we're not getting anything back from this POST request
+const register = (request, response, endpoint) => {
+  console.log('request payload: ', request.payload);
+  let data = '';
+  request.on('data', function(chunk) {
+    data += chunk;
+    console.log("chunk: ", chunk);
+    });
+    request.on('end', () =>{
+      console.log('register data: ', data)
+      const registerData = querystring.parse(data);
+      const name = registerData.name;
+      const username = registerData.username;
+      const password = registerData.password;
+      const confirmPassword = registerData.confirmPassword;
+
+      console.log("name ", name);
+      console.log("username ", username);
+      console.log("password ", password);
+      console.log("confirmPassword ", confirmPassword);
+
+    registerUser(name, username, password, confirmPassword, (err, res) => {
+      if(err){
+      res.writeHead(500, 'Content-Type : text/html');
+                res.end("Sorry problem with registration");
+         console.log(err)
+       }
+       response.writeHead(200, {
+        "Content-Type": "text/html"
+      });
+      fs.readFile(__dirname + "/../index.html", function(error, file) {
+        if (error) {
+          console.log(error);
+          return;
+        } else {
+          response.end(file);
+        }
+      });
+      });
+    })
 }
 
 const viewAll = (request, response, endpoint) => {
@@ -223,5 +257,6 @@ module.exports = {
   freelance,
   internship,
   juniorDev,
-  mentor
+  mentor,
+  register,
 }
