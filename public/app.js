@@ -33,6 +33,11 @@ function request(url, cb) {
 viewAllBtn.addEventListener("click", function() {
   aboutSection.style.display = 'none';
   allNames.style.display = 'block';
+    clearElement(category);
+  // if(category.style.display = 'block'){
+  //   category.style.display = 'none';
+  // displayPeople.style.display = 'block';
+  // // }
   var url = "/viewAll";
   request(url, updateDom);
 })
@@ -91,7 +96,7 @@ function updateDom(result) {
     var peopleGitterP = document.createElement("p");
     peopleGitterP.textContent = "Gitter Handle: " + people.gitter_handle;
     var peopleCategoryP = document.createElement("p");
-    peopleCategoryP.textContent = "Talk to me about: " + people.category;
+    peopleCategoryP.textContent = "Talk to me about: " + people.string_agg;
     var peopleOtherP = document.createElement("p");
     peopleOtherP.textContent = "Additional info on: " + people.other;
     peopleDiv.appendChild(peopleNameP);
@@ -100,7 +105,6 @@ function updateDom(result) {
     peopleDiv.appendChild(peopleCategoryP);
     peopleDiv.appendChild(peopleOtherP);
     displayPeople.appendChild(peopleDiv);
-
   })
 }
 
@@ -125,11 +129,11 @@ window.onclick = function(event) {
     }
 }
 
-//check only one checkbox
-function selectOnlyThis(id) {
-    for (var i = 1;i <= 5; i++)
-    {
-        document.getElementById(i).checked = false;
-    }
-    document.getElementById(id).checked = true;
-}
+// //check only one checkbox
+// function selectOnlyThis(id) {
+//     for (var i = 1;i <= 5; i++)
+//     {
+//         document.getElementById(i).checked = false;
+//     }
+//     document.getElementById(id).checked = true;
+// }
