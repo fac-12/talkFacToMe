@@ -106,7 +106,7 @@ const addMe = (request, response, endpoint) => {
 
 // we're not getting anything back from this POST request
 const register = (request, response, endpoint) => {
-  console.log('register endpoint: ', endpoint);
+  console.log('request payload: ', request.payload);
   let data = '';
   request.on('data', function(chunk) {
     data += chunk;
