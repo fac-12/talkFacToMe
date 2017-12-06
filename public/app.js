@@ -33,7 +33,7 @@ function request(url, cb) {
 viewAllBtn.addEventListener("click", function() {
   aboutSection.style.display = 'none';
   allNames.style.display = 'block';
-    clearElement(category);
+  //  clearElement(category);
   // if(category.style.display = 'block'){
   //   category.style.display = 'none';
   // displayPeople.style.display = 'block';
