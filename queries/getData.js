@@ -1,10 +1,12 @@
 const databaseConnection = require('../database/db_connections.js');
 
 const getData = cb => {
-  databaseConnection.query('SELECT * FROM mentors', (err, res) => {
+  databaseConnection.query(`SELECT mentors.name, mentors.cohort, mentors.gitter_handle, string_agg(categories.selected_category, ', '), mentors.other FROM mentors INNER JOIN categories ON categories.mentors_id = mentors.id GROUP BY mentors.name, mentors.cohort, mentors.gitter_handle, mentors.other`, (err, res) => {
     if (err) {
+      console.log(err);
       cb(err);
     } else {
+      console.log(res.rows);
       cb(null, res.rows);
     }
   });
@@ -12,7 +14,9 @@ const getData = cb => {
 
 module.exports = getData;
 
-// SELECT mentors.name, mentors.gitter_handle, categories.selected_category FROM mentors INNER JOIN categories ON categories.mentors_id = mentors.id
+// SELECT meSELECT mentors.name, mentors.gitter_handle, string_agg(categories.selected_category, ', '), mentors.other FROM mentors INNER JOIN categories ON categories.mentors_id = mentors.id GROUP BY mentors.name, mentors.gitter_handle, mentors.other;
+
+
 //old queries from the two table schema
 // const alumni = 'SELECT name, gitter_handle FROM mentors INNER JOIN categories ON categories.mentors_id = mentors.id WHERE categories.category4 = 'Alumni'';
 //

@@ -60,24 +60,23 @@ const addMe = (request, response, endpoint) => {
     const cohortNumber = allData.cohortNumber;
     const gitterHandle = allData.gitterHandle;
     const talkInfo = allData.talkInfo;
-
-    let category = null;
+    let category = [];
     if (allData.category1){
-      category = "Life at FAC";
-    } else if (allData.category2){
-      category = "Freelancing";
-    } else if (allData.category3){
-      category = "Internship";
-    } else if (allData.category4){
-      category = "Junior Dev";
-    } else if (allData.category5){
-      category = "Mentoring";
+      category.push('Life at FAC');
+    } if (allData.category2){
+      category.push('Freelancing');
+    } if (allData.category3){
+      category.push('Internship');
+    } if (allData.category4){
+      category.push('Junior Dev');
+    } if (allData.category5){
+      category.push('Mentoring');
     }
 
     console.log("name ", name)
     console.log("cohortNumber ", cohortNumber);
     console.log("gitterHandle ", gitterHandle);
-    console.log("category1: ", category);
+    console.log("categoryArray: ", category);
     console.log("talkInfo: ", talkInfo);
 
     // categoryData(category, (err, res) => {
@@ -93,6 +92,9 @@ const addMe = (request, response, endpoint) => {
         response.writeHead(500, 'Content-Type:text/html');
         response.end('<h1>Sorry, there was a problem adding that user</h1>');
         console.log(err)
+      } else {
+        response.writeHead(200, {'Location' : '/'});
+        response.end();
       }
     });
 

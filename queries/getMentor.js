@@ -1,7 +1,7 @@
 const databaseConnection = require('../database/db_connections.js');
 
 const getMentor = cb => {
-  databaseConnection.query("SELECT * FROM mentors WHERE category='Mentoring'", (err, res) => {
+  databaseConnection.query(`SELECT mentors.name, mentors.cohort, mentors.gitter_handle, string_agg(categories.selected_category, ', '), mentors.other FROM mentors INNER JOIN categories ON categories.mentors_id = mentors.id WHERE categories.selected_category='Mentoring' GROUP BY mentors.name, mentors.cohort, mentors.gitter_handle, mentors.other`, (err, res) => {
     if (err) {
       cb(err);
     } else {

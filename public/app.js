@@ -32,11 +32,14 @@ function request(url, cb) {
 viewAllBtn.addEventListener("click", function() {
   aboutSection.style.display = 'none';
   allNames.style.display = 'block';
+    clearElement(category);
+  // if(category.style.display = 'block'){
+  //   category.style.display = 'none';
+  // displayPeople.style.display = 'block';
+  // // }
   var url = "/viewAll";
   request(url, updateDom);
 })
-
-
 
 facBtn.addEventListener("click", function() {
   var url = "/fac";
@@ -70,7 +73,7 @@ function clearElement(element) {
 }
 
 function updateDomCategory(result){
-    clearElement(category);
+  clearElement(category);
   var allCategory = result.slice(0);
   displayPeople.style.display = 'none';
   allCategory.forEach(function(people) {
@@ -83,7 +86,7 @@ function updateDomCategory(result){
     var peopleGitterP = document.createElement("p");
     peopleGitterP.textContent = "Gitter Handle: " + people.gitter_handle;
     var peopleCategoryP = document.createElement("p");
-    peopleCategoryP.textContent = "Talk to me about: " + people.category;
+    peopleCategoryP.textContent = "Talk to me about: " + people.string_agg;
     var peopleOtherP = document.createElement("p");
     peopleOtherP.textContent = "Additional info on: " + people.other;
     peopleDiv.appendChild(peopleNameP);
@@ -108,7 +111,7 @@ function updateDom(result) {
     var peopleGitterP = document.createElement("p");
     peopleGitterP.textContent = "Gitter Handle: " + people.gitter_handle;
     var peopleCategoryP = document.createElement("p");
-    peopleCategoryP.textContent = "Talk to me about: " + people.category;
+    peopleCategoryP.textContent = "Talk to me about: " + people.string_agg;
     var peopleOtherP = document.createElement("p");
     peopleOtherP.textContent = "Additional info on: " + people.other;
     peopleDiv.appendChild(peopleNameP);
@@ -117,7 +120,6 @@ function updateDom(result) {
     peopleDiv.appendChild(peopleCategoryP);
     peopleDiv.appendChild(peopleOtherP);
     displayPeople.appendChild(peopleDiv);
-
   })
 }
 
