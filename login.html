@@ -18,35 +18,40 @@
   <section class="about" id="about">
     <p class="about__info"> Talk FAC To Me is a platform where you can find current students and past alumni of Founders & Coders London. Search our directory to connect with people who are happy to share advice and knowledge on topics such as careers, lifestyle, practicalities
       of the course etc. </p>
-    <p> </p>
-    <div class="about__btn-div">
-            <section>
-                    <div>
-                       <span class="close">&times;</span>
-                       <h1> Alumni or current student? Enter your details below to register to the site. </h1>
-                       <form class="formSection__form" id="register_Form" action="/register" method="post">
-                        <label class="formSection__labels" for="name">Name: <input type="text" id="name"name="name" class="formSection__inputs" required></label>
-                        <label class="formSection__labels" for="name">Username: <input type="text" id="username"name="username" class="formSection__inputs" required></label>
-                        <label class="formSection__labels" for="name">Password: <input type="password" id="password"name="password" class="formSection__inputs" required></label>
-                        <label class="formSection__labels" for="name">Confirm Password: <input type="password" id="confirmPassword"name="confirmPassword" class="formSection__inputs" required></label>
-                        <label for="submitBtn"> <input type="submit" name="submitBtn" value="Submit"></label>
-                      </form>
-                     </div>
-                 </section>
-      <button type="button" name="Register" id="register" class="register-btn"> Register </button>
-      <button type="button" name="Log-in" id="loginBtn" class="login-btn"> Login </button>
+    <div class="about__buttons">
+      <button type="button" name="Register" id="register" class="about__register-btn"> Register </button>
+      <button type="button" name="Log-in" id="loginBtn" class="about__login-btn"> Login </button>
     </div>
   </section>
 
-<section>
-  <form class="" action="/login" method="post">
-    <label for="username"> Username <input type="text" name="username" value=""> </label>
-    <label for="password"> Password <input type="password" name="password" value=""> </label>
-    <label for="submitBtn"> <input type="submit" name="submitBtn" value="Submit"></label>
-  </form>
-</section>
+  <section class="register" id="registerModal">
+    <div class="register__div">
+      <span class="register__close">&times;</span>
+      <h1 class="register__heading"> Alumni or current student? Enter your details below to register to the site. </h1>
+      <form class="register__formSection__form" id="register_Form" action="/register" method="post">
+        <label class="register__formSection__labels" for="name">Name: <input type="text" id="name"name="name" class="register__formSection__inputs" required></label>
+        <label class="register__formSection__labels" for="name">Username: <input type="text" id="username"name="username" class="register__formSection__inputs" required></label>
+        <label class="register__formSection__labels" for="name">Password: <input type="password" id="password"name="password" class="register__formSection__inputs" required></label>
+        <label class="register__formSection__labels" for="name">Confirm Password: <input type="password" id="confirmPassword"name="confirmPassword" class="register__formSection__inputs" required></label>
+        <label class="register__formSection__labels" for="submitBtn"> <input type="submit" class="register__submitButton" name="submitBtn" value="Register"></label>
+      </form>
+    </div>
+  </section>
 
-
+  <section class="login" id="loginModal">
+    <div class="login__div">
+      <span class="login__close">&times;</span>
+      <h1 class="login__heading"> Alumni or current student? Enter your details below to login to the site. </h1>
+      <form class="login__formSection__form" id="login__form" action="/login" method="post">
+        <label class="login__formSection__labels" for="username"> Username <input type="text" class="login__formSection__inputs" name="username" value=""> </label>
+        <label class="login__formSection__labels" for="password"> Password <input type="password" class="login__formSection__inputs" name="password" value=""> </label>
+        <label class="login__formSection__labels" for="submitBtn"> <input type="submit" class="login__formSection__inputs" name="submitBtn" value="Login"></label>
+      </form>
+    </div>
+  </section>
 </body>
 
+<script type="text/javascript" src="./public/login.js">
+
+</script>
 </html>
