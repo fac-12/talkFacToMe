@@ -147,7 +147,7 @@ const register = (request, response, endpoint) => {
        })
      }
          else if(res.rows[0].column === 0){
-          registerUser(username, password, (err, res) => {
+          registerUser(name, username, password, (err, res) => {
              if(err){
              res.writeHead(200, 'Content-Type : text/html');
                        res.end("Sorry, there's been a problem with registration");

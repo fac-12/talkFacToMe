@@ -25,13 +25,13 @@ INSERT INTO categories (mentors_id, selected_category) VALUES ((SELECT id FROM m
 
 CREATE TABLE auth (
     id SERIAL PRIMARY KEY,
-    mentors_id INTEGER REFERENCES mentors(id),
+    name VARCHAR (50),
     username VARCHAR(50),
     password VARCHAR(100),
     permission VARCHAR(50)
 );
 
-INSERT INTO auth (mentors_id, username, password, permission) VALUES (1, 'nat', 'hello', 'admin'), (2, 'sophie', 'bye', 'admin');
+INSERT INTO auth (name, username, password, permission) VALUES ('nat','njseeto', 'hello', 'admin'), ('sophie', 'sophielevens', 'bye', 'admin');
 
 -- CREATE TABLE categorylist (
 --   id SERIAL PRIMARY KEY,
