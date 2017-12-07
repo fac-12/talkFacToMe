@@ -8,9 +8,10 @@ const getFreelance = require('../queries/getFreelance');
 const getInternship = require('../queries/getInternship');
 const getJuniorDev = require('../queries/getJuniorDev');
 const getMentor = require('../queries/getMentor');
+const registerUser = require('../queries/register');
 
 const homeHandler = (request, response) => {
-  let filePath = path.join(__dirname, '..', 'index.html');
+  let filePath = path.join(__dirname, '..', 'login.html');
   fs.readFile(filePath, 'utf8', (err, file) => {
     if (err) {
       response.writeHead(500, {

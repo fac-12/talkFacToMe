@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/fac-12/talkFacToMe#readme",
   "dependencies": {
+    "bcrypt": "^1.0.3",
+    "bcryptjs": "^2.4.3",
     "env2": "^2.2.0",
     "nodemon": "^1.12.1",
     "pg": "^7.4.0"

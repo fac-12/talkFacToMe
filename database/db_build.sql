@@ -31,6 +31,8 @@ CREATE TABLE auth (
     permission VARCHAR(50)
 );
 
+INSERT INTO auth (mentors_id, username, password, permission) VALUES (1, 'nat', 'hello', 'admin'), (2, 'sophie', 'bye', 'admin');
+
 -- CREATE TABLE categorylist (
 --   id SERIAL PRIMARY KEY,
 --   categoryname VARCHAR(50),
