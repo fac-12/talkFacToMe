@@ -10,6 +10,8 @@ const getJuniorDev = require('../queries/getJuniorDev');
 const getMentor = require('../queries/getMentor');
 const registerUser = require('../queries/register');
 const checkUser = require('../queries/checkUser');
+const checkPassword = require('../queries/checkPassword');
+const bcrypt = require('bcryptjs');
 
 const homeHandler = (request, response) => {
   let filePath = path.join(__dirname, '..', 'login.html');
@@ -169,6 +171,42 @@ const register = (request, response, endpoint) => {
   }
 
 
+const login = (request, response, endpoint) => {
+  let data = '';
+  request.on('data', function(chunk) {
+    data += chunk;
+    console.log("chunk: ", chunk);
+    });
+    request.on('end', () => {
+      console.log('register data: ', data)
+      const registerData = querystring.parse(data);
+      const username = registerData.username;
+      const password = registerData.password;
+    checkPassword(username, password, (err, res) => {
+      if(err){
+        response.writeHead(500, {'Content-Type':'text/html'});
+        response.end("<h1> Cant long in at this time</h1>");
+      } else {
+        if(res === false){
+          response.writeHead(500, {'Content-Type':'text/html'})
+          response.end("<h1>Incorrect password</h1>");
+        } else if (res === true){
+          response.writeHead(200, {
+           "Content-Type": "text/html"
+         });
+         fs.readFile(__dirname + "/../index.html", function(error, file) {
+           if (error) {
+             console.log(error);
+             return;
+           } else {
+             response.end(file);
+           }
+         });
+        }
+      }
+    })
+    })
+}
 
 const viewAll = (request, response, endpoint) => {
   console.log(endpoint);
@@ -283,4 +321,5 @@ module.exports = {
   juniorDev,
   mentor,
   register,
+  login
 }
