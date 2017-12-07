@@ -24,7 +24,7 @@ CREATE TABLE mentors (
     other TEXT
 );
 
-INSERT INTO mentors (auth_id, cohort, gitter_handle, other) VALUES (1, 12, '@njseeto', 'Career changes');
+INSERT INTO mentors (auth_id, cohort, gitter_handle, other) VALUES (1, 12, '@njseeto', 'Career changes'), (2, 12, '@sophielevens', 'Work/life balance');
 
 CREATE TABLE categories (
     id SERIAL PRIMARY KEY,
@@ -33,13 +33,5 @@ CREATE TABLE categories (
 );
 
 INSERT INTO categories (auth_id, selected_category) VALUES (1, 'Life at FAC'), (1, 'Freelancing'), (2, 'Internship'), (2, 'Junior Dev');
-
--- CREATE TABLE categorylist (
---   id SERIAL PRIMARY KEY,
---   categoryname VARCHAR(50),
---   categoryid INTEGER
--- );
---
--- INSERT INTO categorylist (categoryname, categoryid) VALUES ('Life at FAC', 1), ('Freelancing', 2), ('Internship', 3), ('Junior Dev', 4), ('Mentoring', 5);
 
 COMMIT;
