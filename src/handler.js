@@ -1,3 +1,4 @@
+/*eslint-disable*/
 const fs = require('fs');
 const path = require('path');
 const querystring = require('querystring');
@@ -12,6 +13,9 @@ const registerUser = require('../queries/register');
 const checkUser = require('../queries/checkUser');
 const checkPassword = require('../queries/checkPassword');
 const bcrypt = require('bcryptjs');
+const secret = process.env.secret;
+const jwt = require('jsonwebtoken');
+const cookie = require('cookie');
 
 const homeHandler = (request, response) => {
   let filePath = path.join(__dirname, '..', 'login.html');
@@ -191,8 +195,10 @@ const login = (request, response, endpoint) => {
           response.writeHead(500, {'Content-Type':'text/html'})
           response.end("<h1>Incorrect password</h1>");
         } else if (res === true){
+          var token = jwt.sign({'logged-in' : 'true', 'username' : `${username}`}, secret);
+
           response.writeHead(200, {
-           "Content-Type": "text/html"
+           "Content-Type": "text/html", 'Set-Cookie' : `Token = ${token}; Max-Age=9000`
          });
          fs.readFile(__dirname + "/../index.html", function(error, file) {
            if (error) {
