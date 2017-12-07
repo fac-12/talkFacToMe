@@ -1,11 +1,14 @@
+/*eslint-disable*/ 
+
 var registerBtn = document.getElementById('register');
 var logInBtn = document.getElementById('loginBtn');
 
-var modal = document.getElementById('myModal');
-var modalLogin = document.getElementById('myModalLogIn');
+var registerModal = document.getElementById('registerModal');
+var loginModal = document.getElementById('loginModal');
 
-var span = document.getElementsByClassName("register__formSection__close")[0];
+var registerCloseButton = document.getElementsByClassName("register__close")[0];
 
+var loginCloseButton = document.getElementsByClassName("login__close")[0];
 
 registerBtn.onclick = function(){
   modalLogin.style.display = "block";
