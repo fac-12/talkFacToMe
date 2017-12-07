@@ -198,11 +198,13 @@ const login = (request, response, endpoint) => {
         } else if (res === true){
           token = jwt.sign({'logged-in' : 'true', 'username' : `${username}`}, secret);
           response.writeHead(200, {
-           "Content-Type": "text/html", 'Set-Cookie' : `Token = ${token}; Max-Age=9000`
+           "Content-Type": "text/html", 'Set-Cookie' : `Token = ${token}; HttpOnly; Max-Age=9000;`
          });
+         const decoded = jwt.verify(token, secret);
          console.log("token: ", token)
          console.log('secret: ', secret)
-         console.log('payload: ', token.payload)
+         console.log('decoded username: ', decoded.username)
+
          fs.readFile(__dirname + "/../index.html", function(error, file) {
            if (error) {
              console.log(error);
