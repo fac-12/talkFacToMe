@@ -321,7 +321,7 @@ const mentor = (request, response, endpoint) => {
 
 const logout = (request, response, endpoint) => {
   console.log('logout function running')
-  response.writeHead(302, {'Location' : '/', 'Set-Cookie' : `token = ${token}; Max-Age=0`});
+  response.writeHead(302, {'Location' : '/', 'Set-Cookie' : `Token = ${token}; Max-Age=0`});
   response.end()
 }
 
