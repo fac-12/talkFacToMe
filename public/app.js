@@ -129,11 +129,3 @@ window.onclick = function(event) {
     }
 }
 
-// //check only one checkbox
-// function selectOnlyThis(id) {
-//     for (var i = 1;i <= 5; i++)
-//     {
-//         document.getElementById(i).checked = false;
-//     }
-//     document.getElementById(id).checked = true;
-// }
