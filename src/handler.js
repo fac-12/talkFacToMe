@@ -9,6 +9,7 @@ const getInternship = require('../queries/getInternship');
 const getJuniorDev = require('../queries/getJuniorDev');
 const getMentor = require('../queries/getMentor');
 const registerUser = require('../queries/register');
+const checkUser = require('../queries/checkUser');
 
 const homeHandler = (request, response) => {
   let filePath = path.join(__dirname, '..', 'login.html');
@@ -105,7 +106,8 @@ const addMe = (request, response, endpoint) => {
   })
 }
 
-// we're not getting anything back from this POST request
+
+
 const register = (request, response, endpoint) => {
   console.log('request payload: ', request.payload);
   let data = '';
@@ -126,26 +128,47 @@ const register = (request, response, endpoint) => {
       console.log("password ", password);
       console.log("confirmPassword ", confirmPassword);
 
-    registerUser(name, username, password, confirmPassword, (err, res) => {
-      if(err){
-      res.writeHead(500, 'Content-Type : text/html');
-                res.end("Sorry problem with registration");
-         console.log(err)
-       }
-       response.writeHead(200, {
-        "Content-Type": "text/html"
-      });
-      fs.readFile(__dirname + "/../index.html", function(error, file) {
-        if (error) {
-          console.log(error);
-          return;
-        } else {
-          response.end(file);
-        }
-      });
-      });
+    checkUser(username, (err, res) => {
+      if(err) {
+        res.writeHead(200, 'Content-Type : text/html');
+                  res.end("Sorry, there's been a problem with registration");
+           console.log(err)
+         } else if (res.rows[0].column === 1){
+           response.writeHead(200, 'Content-Type : text/html');
+           fs.readFile(__dirname + "/../index.html", function(error, file) {
+             if (error) {
+               console.log(error);
+               return;
+             } else {
+               response.end(file);
+         }
+       })
+     }
+         else if(res.rows[0].column === 0){
+          registerUser(username, password, (err, res) => {
+             if(err){
+             res.writeHead(200, 'Content-Type : text/html');
+                       res.end("Sorry, there's been a problem with registration");
+                console.log(err)
+              }
+              response.writeHead(200, {
+               "Content-Type": "text/html"
+             });
+             fs.readFile(__dirname + "/../index.html", function(error, file) {
+               if (error) {
+                 console.log(error);
+                 return;
+               } else {
+                 response.end(file);
+               }
+             });
+             });
+         }
+      })
     })
-}
+  }
+
+
 
 const viewAll = (request, response, endpoint) => {
   console.log(endpoint);

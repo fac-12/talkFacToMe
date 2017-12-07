@@ -1,22 +1,30 @@
 "use strict";
+
 const databaseConnection = require('../database/db_connections.js');
-const hashPassword = require('../src/auth');
+const bcrypt = require('bcryptjs');
 
-const registerUser = (name, username, password, cb) => {
-  console.log("Register User running");
-    databaseConnection.query(`Select * FROM auth WHERE username = $1`, [username], (err, res) => {
-      console.log("res rows: ", res.rows);
-          if (err) {
-            return cb(err);
-          } else if (res.rows === []){ console.log(name, username, password)
-            let hashedPassword = hashPassword(password);
-              databaseConnection.query(`INSERT INTO auth (name, username, hashedPassword) VALUES ($1, $2, $3)`, [name, username, hashedPassword], (err, res) => {
-        if(err){
-                  cb(err);
-                }
-              })
-          }
-        })
+const registerUser = (username, password, cb) => {
+console.log("Register User running");
+  bcrypt.genSalt(10, (err, salt) => {
+  bcrypt.hash(password, salt, (err, hash) => {
+    if (err) {
+    console.log(err);
+  } else {
+    console.log("hash: ", hash);
+    databaseConnection.query(`INSERT INTO auth (username, password) VALUES ($1, $2)`, [username, hash], (err, res) => {
+      if (err) {
+        console.log(err);
+        cb(err);
+      } else {
+        console.log(res);
+        cb(null, res);
       }
+    })
+    }
+  })
+})
+}
 
-        module.exports = registerUser;
+
+
+module.exports = registerUser;
