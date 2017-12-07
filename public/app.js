@@ -106,6 +106,9 @@ function updateDom(result) {
     peopleDiv.appendChild(peopleOtherP);
     displayPeople.appendChild(peopleDiv);
   })
+  // var username = document.createElement('p');
+  // username.textContent= decoded.username;
+  // displayPeople.appendChild(username);
 }
 
 var modal = document.getElementById('myModal');

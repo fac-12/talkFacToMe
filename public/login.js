@@ -59,3 +59,29 @@ function strongPassword(){
   }
 }
 
+
+// Need to figure out how to add username to page after log in
+
+// function request(url, cb) {
+//   var xhr = new XMLHttpRequest();
+//   xhr.onreadystatechange = function() {
+//     if (xhr.status === 200 && xhr.readyState === 4) {
+//       var result = JSON.parse(xhr.responseText);
+//       cb(result)
+
+//     }
+//   }
+//   xhr.open("POST", url, true);
+//   xhr.send();
+// }
+
+// var loginBtn = document.getElementsByClassName('login__formSection__submitButton')[0]
+
+// loginBtn.addEventListener('click', function(){
+//   var url = '/login';
+//   request(url, loginFunc)
+// })
+
+// function loginFunc(){
+
+// }
