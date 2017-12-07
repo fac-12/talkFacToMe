@@ -1,13 +1,13 @@
 const databaseConnection = require('../database/db_connections.js');
 
 const postData = (name, cohortNumber, gitterHandle, categoryArray, other, cb) => {
-    databaseConnection.query(`INSERT INTO mentors (name, cohort, gitter_handle, other) VALUES ($1, $2, $3, $4) RETURNING id`, [name, cohortNumber, gitterHandle, other], (err, res) => {
+    databaseConnection.query(`insert into mentors (auth_id, cohort, gitter_handle, other) VALUES ((select id from auth where username = $1), $2, $3, $4) RETURNING auth_id;`, [name, cohortNumber, gitterHandle, other], (err, res) => {
           if (err) {
             return cb(err);
           } else {
             categoryArray.forEach((value, index, array) => {
-              let id = res.rows[0].id;
-              databaseConnection.query(`INSERT INTO categories (mentors_id, selected_category) VALUES ($1, $2)`, [id, value], (err, res) => {
+              let auth_id = res.rows[0].auth_id;
+              databaseConnection.query(`INSERT INTO categories (auth_id, selected_category) VALUES ($1, $2)`, [auth_id, value], (err, res) => {
                 if (err) {
                   cb(err);
                 } else if (index === categoryArray.length - 1) {
