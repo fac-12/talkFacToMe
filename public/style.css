@@ -118,6 +118,16 @@ body{
   color: white;
 }
 
+.hideError{
+  display: none;
+  color: red;
+}
+
+.showError{
+  display: block;
+    color: red;
+}
+
 @media screen and (min-width: 600px){
   .heading{
     font-size: 2rem;
