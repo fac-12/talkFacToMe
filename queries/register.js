@@ -3,7 +3,7 @@
 const databaseConnection = require('../database/db_connections.js');
 const bcrypt = require('bcryptjs');
 
-const registerUser = (username, password, cb) => {
+const registerUser = (name, username, password, cb) => {
 console.log("Register User running");
   bcrypt.genSalt(10, (err, salt) => {
   bcrypt.hash(password, salt, (err, hash) => {
@@ -11,7 +11,7 @@ console.log("Register User running");
     console.log(err);
   } else {
     console.log("hash: ", hash);
-    databaseConnection.query(`INSERT INTO auth (username, password) VALUES ($1, $2)`, [username, hash], (err, res) => {
+    databaseConnection.query(`INSERT INTO auth (name, username, password) VALUES ($1, $2, $3)`, [name, username, hash], (err, res) => {
       if (err) {
         console.log(err);
         cb(err);

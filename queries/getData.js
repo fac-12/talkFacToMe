@@ -1,7 +1,7 @@
 const databaseConnection = require('../database/db_connections.js');
 
 const getData = cb => {
-  databaseConnection.query(`SELECT mentors.name, mentors.cohort, mentors.gitter_handle, string_agg(categories.selected_category, ', '), mentors.other FROM mentors INNER JOIN categories ON categories.mentors_id = mentors.id GROUP BY mentors.name, mentors.cohort, mentors.gitter_handle, mentors.other`, (err, res) => {
+  databaseConnection.query(`SELECT auth.name, mentors.cohort, mentors.gitter_handle, string_agg(categories.selected_category, ', '), mentors.other FROM auth INNER JOIN mentors ON auth.id = mentors.auth_id INNER JOIN categories ON categories.auth_id = mentors.auth_id  GROUP BY auth.name, mentors.cohort, mentors.gitter_handle, mentors.other`, (err, res) => {
     if (err) {
       console.log(err);
       cb(err);
