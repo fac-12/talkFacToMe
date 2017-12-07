@@ -1,4 +1,4 @@
-const {homeHandler, staticHandler, addMe, viewAll, facLife, freelance, internship, juniorDev, mentor, register, login} = require('./handler');
+const {homeHandler, staticHandler, addMe, viewAll, facLife, freelance, internship, juniorDev, mentor, register, login, logout} = require('./handler');
 
 const router = (request, response) => {
   const endpoint = request.url;
@@ -14,7 +14,8 @@ const router = (request, response) => {
   }
   else if (endpoint.indexOf('/viewAll') !== -1){
     viewAll(request, response, endpoint)
-  } else if(endpoint.indexOf('/fac') !== -1){
+  } 
+  else if(endpoint.indexOf('/fac') !== -1){
     facLife(request, response, endpoint)
   }
   else if(endpoint.indexOf('/freelance') !== -1){
@@ -30,9 +31,13 @@ const router = (request, response) => {
     mentor(request, response, endpoint)
   }
   else if(endpoint.indexOf('/register') !== -1){
-    register(request, response, endpoint);
-  } else if(endpoint.indexOf('/login') !== -1){
+    register(request, response, endpoint)
+  }
+  else if(endpoint.indexOf('/login') !== -1){
     login(request, response, endpoint);
+  } 
+  else if(endpoint.indexOf('/logout') !== -1){
+    logout(request, response, endpoint);
   }
   else {
     response.writeHead(404, {"Content-Type": "text/plain"});

@@ -1,3 +1,4 @@
+/*eslint-disable*/
 const fs = require('fs');
 const path = require('path');
 const querystring = require('querystring');
@@ -12,6 +13,10 @@ const registerUser = require('../queries/register');
 const checkUser = require('../queries/checkUser');
 const checkPassword = require('../queries/checkPassword');
 const bcrypt = require('bcryptjs');
+const secret = process.env.secret;
+const jwt = require('jsonwebtoken');
+const cookie = require('cookie');
+var token;
 
 const homeHandler = (request, response) => {
   let filePath = path.join(__dirname, '..', 'login.html');
@@ -191,9 +196,13 @@ const login = (request, response, endpoint) => {
           response.writeHead(500, {'Content-Type':'text/html'})
           response.end("<h1>Incorrect password</h1>");
         } else if (res === true){
+          token = jwt.sign({'logged-in' : 'true', 'username' : `${username}`}, secret);
           response.writeHead(200, {
-           "Content-Type": "text/html"
+           "Content-Type": "text/html", 'Set-Cookie' : `Token = ${token}; Max-Age=9000`
          });
+         console.log("token: ", token)
+         console.log('secret: ', secret)
+         console.log('payload: ', token.payload)
          fs.readFile(__dirname + "/../index.html", function(error, file) {
            if (error) {
              console.log(error);
@@ -310,6 +319,12 @@ const mentor = (request, response, endpoint) => {
   });
 }
 
+const logout = (request, response, endpoint) => {
+  console.log('logout function running')
+  response.writeHead(302, {'Location' : '/', 'Set-Cookie' : `Token = ${token}; Max-Age=0`});
+  response.end()
+}
+
 module.exports = {
   homeHandler,
   staticHandler,
@@ -321,5 +336,6 @@ module.exports = {
   juniorDev,
   mentor,
   register,
-  login
+  login,
+  logout
 }

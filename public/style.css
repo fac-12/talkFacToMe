@@ -109,7 +109,7 @@ body{
   font-size: 1rem;
   width: inherit;
 }
-.formSection__btn, .about__view-btn, .about__join-btn, .all-names__btn, .formSection__submit-btn, .register__submitButton, .login__formSection__submitButton, .about__register-btn, .about__login-btn {
+.formSection__btn, .about__view-btn, .about__join-btn, .all-names__btn, .formSection__submit-btn, .register__submitButton, .login__formSection__submitButton, .about__register-btn, .about__login-btn, .navigation__logOut-button {
   margin-top: 0.9rem;
   padding: 0.7rem;
   font-size: 1rem;

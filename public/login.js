@@ -58,3 +58,4 @@ function strongPassword(){
     submitRegister.disabled = false;
   }
 }
+
