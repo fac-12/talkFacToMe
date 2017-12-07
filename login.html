@@ -31,8 +31,10 @@
       <form class="register__formSection__form" id="register_Form" action="/register" method="post">
         <label class="register__formSection__labels" for="name">Name: <input type="text" id="name"name="name" class="register__formSection__inputs" required></label>
         <label class="register__formSection__labels" for="name">Username: <input type="text" id="username"name="username" class="register__formSection__inputs" required></label>
-        <label class="register__formSection__labels" for="name">Password: <input type="password" id="password"name="password" class="register__formSection__inputs" required></label>
-        <label class="register__formSection__labels" for="name">Confirm Password: <input type="password" id="confirmPassword"name="confirmPassword" class="register__formSection__inputs" required></label>
+        <label class="register__formSection__labels" for="name">Password: <input type="password" id="password"name="password" class="register__formSection__inputs" onkeyup="strongPassword()" required></label>
+        <p class="register__password-strongError hideError"> Passwords must contain one uppercase letter, one number, one special case letter(!@#$&*) and must be a minimum of 8 characters.</p>
+        <label class="register__formSection__labels" for="name">Confirm Password: <input type="password" id="confirmPassword"name="confirmPassword" class="register__formSection__inputs" onkeyup="checkPasswordMatch()" required></label>
+        <p class="register__password-error hideError"> Passwords do not match </p>
         <label class="register__formSection__labels" for="submitBtn"> <input type="submit" class="register__submitButton" name="submitBtn" value="Register"></label>
       </form>
     </div>
