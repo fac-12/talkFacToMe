@@ -83,11 +83,6 @@ function clearElement(element) {
   }
 }
 
-// const decoded = jwt.verify(token, secret);
-// console.log("token: ", token)
-// console.log('secret: ', secret)
-// console.log('decoded username: ', decoded.username)
-
 function updateDom(result) {
   clearElement(displayPeople)
   var allPeople = result.slice(0);
