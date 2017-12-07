@@ -5,24 +5,6 @@ DROP TABLE IF EXISTS categorylist CASCADE;
 DROP TABLE IF EXISTS categories CASCADE;
 DROP TABLE IF EXISTS auth CASCADE;
 
-CREATE TABLE mentors (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-    cohort INTEGER,
-    gitter_handle TEXT,
-    other TEXT
-);
-
-INSERT INTO mentors (name, cohort, gitter_handle, other) VALUES ('Nat', 12, '@njseeto', 'Career changes'), ('Sophie', 12, '@sophielevens', 'Adjusting to professional role after FAC'), ('Johanna', 12, '@johanna-hub', 'Doing FAC with kids'), ('Fatimat', 12, '@gbaja', 'Work-life balance'), ('James', 11, '@james', 'Graduate projects') ;
-
-CREATE TABLE categories (
-    id SERIAL PRIMARY KEY,
-    mentors_id INTEGER REFERENCES mentors(id),
-    selected_category VARCHAR(50)
-);
-
-INSERT INTO categories (mentors_id, selected_category) VALUES ((SELECT id FROM mentors WHERE name = 'Nat'), 'Life at FAC'), ((SELECT id FROM mentors WHERE name = 'Nat'), 'Freelancing'), ((SELECT id FROM mentors WHERE name = 'Nat'), 'Internship'), ((SELECT id FROM mentors WHERE name = 'Sophie'), 'Junior Dev'), ((SELECT id FROM mentors WHERE name = 'Sophie'), 'Mentoring'), ((SELECT id FROM mentors WHERE name = 'Johanna'), 'Mentoring'), ((SELECT id FROM mentors WHERE name = 'Johanna'), 'Internship'), ((SELECT id FROM mentors WHERE name = 'Fatimat'), 'Junior Dev');
-
 CREATE TABLE auth (
     id SERIAL PRIMARY KEY,
     name VARCHAR (50),
@@ -32,6 +14,25 @@ CREATE TABLE auth (
 );
 
 INSERT INTO auth (name, username, password, permission) VALUES ('nat','njseeto', 'hello', 'admin'), ('sophie', 'sophielevens', 'bye', 'admin');
+
+
+CREATE TABLE mentors (
+    id SERIAL PRIMARY KEY,
+    auth_id INTEGER REFERENCES auth(id),
+    cohort INTEGER,
+    gitter_handle TEXT,
+    other TEXT
+);
+
+INSERT INTO mentors (auth_id, cohort, gitter_handle, other) VALUES (1, 12, '@njseeto', 'Career changes');
+
+CREATE TABLE categories (
+    id SERIAL PRIMARY KEY,
+    auth_id INTEGER REFERENCES auth(id),
+    selected_category VARCHAR(50)
+);
+
+INSERT INTO categories (auth_id, selected_category) VALUES (1, 'Life at FAC'), (1, 'Freelancing'), (2, 'Internship'), (2, 'Junior Dev');
 
 -- CREATE TABLE categorylist (
 --   id SERIAL PRIMARY KEY,
