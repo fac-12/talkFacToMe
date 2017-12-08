@@ -7,7 +7,7 @@ const checkPassword = (username, password, cb) => {
       console.log(err);
       cb(err);
     } else {
-      console.log("hashed password: ", res.rows[0].password);
+      console.log('hashed password: ;', res.rows[0].password);
       console.log('password: ', password);
       const correctP = bcrypt.compare(password, res.rows[0].password, cb);
       cb(null, correctP);
