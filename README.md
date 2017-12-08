@@ -4,30 +4,25 @@
 
 ### Founders and Coders Mentoring System
 
-A simple web app with a node server and database that connects current and newly accepted students to alumni who are happy to give advice about a specifi topic.
+A simple web app with a node server and database that connects current and newly accepted students to alumni who are happy to give advice about a specific topic.
 
 #### User Journeys
-As a member of FAC I want:
+**As a member of FAC I want:**
 - To be able to access contact details (gitter handle) to connect with alumni about the course and life after FAC
 - To view all available mentors
 - To sort by category (Life at FAC, Freelancing, Internships, Junior Dev, Mentorship)
 
-As an alumnus I want:
+**As an alumnus I want:**
 - To be able to add my details to the database as a mentor and select the relevant category I am willing to give advice about
 
-Stretch Goal
-- Alumni are able to add details and select more than one category they can be contacted about
+**Stretch Goal**
+- As alumni I want to be able to select more than one category
+- Alumni are able to edit and/or delete their entry
 
 #### Schema
 
-We originally planned to have three tables, but due to time constraints currently have one table with all the relevant information in it:
-id
-name
-cohort
-gitter_handle
-category
+![](https://i.imgur.com/EaDQ7cS.png)
 
-Our stretch goal is to populate our categories table so that multiple categories can be chosen.
 
 #### Security
 
@@ -51,3 +46,10 @@ const postData = (name, cohortNumber, gitterHandle, talkInfo, cb) => {
 
 #### Tests
 We carried out database testing with Tape and tested the server using Shot.
+
+![](https://i.imgur.com/9VqMPaG.jpg)
+
+#### What We Learned
+- Cookies :cookie: :cookie: :cookie: :cookie: (setting, deleting)
+- JWT authentication on all endpoints (protected vs unprotected routes)
+- Password management (hashing, bcrypt)
