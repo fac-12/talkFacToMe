@@ -141,15 +141,8 @@ const register = (request, response, endpoint) => {
                   res.end("Sorry, there's been a problem with registration");
            console.log(err)
          } else if (res.rows[0].column === 1){
-           response.writeHead(200, 'Content-Type : text/html');
-           fs.readFile(__dirname + "/../index.html", function(error, file) {
-             if (error) {
-               console.log(error);
-               return;
-             } else {
-               response.end(file);
-         }
-       })
+           response.writeHead(409, 'Content-Type : text/html');
+           response.end('Sorry, that username is taken');
      }
          else if(res.rows[0].column === 0){
           registerUser(name, username, password, (err, res) => {
