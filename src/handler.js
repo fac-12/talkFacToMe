@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const querystring = require('querystring');
+const checkPassword = require('../queries/checkPassword');
 const postData = require('../queries/postData');
 const getData = require('../queries/getData');
 const getFac = require('../queries/getFac');
@@ -11,7 +12,7 @@ const getJuniorDev = require('../queries/getJuniorDev');
 const getMentor = require('../queries/getMentor');
 const registerUser = require('../queries/register');
 const checkUser = require('../queries/checkUser');
-const checkPassword = require('../queries/checkPassword');
+
 const bcrypt = require('bcryptjs');
 const secret = process.env.secret;
 const jwt = require('jsonwebtoken');
