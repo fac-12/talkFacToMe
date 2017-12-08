@@ -1,4 +1,7 @@
 const {homeHandler, staticHandler, addMe, viewAll, facLife, freelance, internship, juniorDev, mentor, register, login, logout} = require('./handler');
+const secret = process.env.secret;
+const jwt = require('jsonwebtoken');
+const cookie = require('cookie');
 
 const router = (request, response) => {
   const endpoint = request.url;
@@ -13,8 +16,22 @@ const router = (request, response) => {
     addMe(request, response, endpoint);
   }
   else if (endpoint.indexOf('/viewAll') !== -1){
-    viewAll(request, response, endpoint)
-  } 
+    if(request.headers.cookie){
+    var userJwt = cookie.parse(request.headers.cookie);
+    console.log('userjwt', userJwt);
+    jwt.verify(userJwt.Token, secret, (err, decoded) => {
+      if (err){
+        response.writeHead(401);
+        response.end("Sorry, you don't have permission to view this page")
+      } else {
+        viewAll(request, response, endpoint)
+      }
+    })
+  } else {
+    response.writeHead(401);
+    response.end("Sorry, you don't have permission to view this page")
+  }
+  }
   else if(endpoint.indexOf('/fac') !== -1){
     facLife(request, response, endpoint)
   }
@@ -35,7 +52,7 @@ const router = (request, response) => {
   }
   else if(endpoint.indexOf('/login') !== -1){
     login(request, response, endpoint);
-  } 
+  }
   else if(endpoint.indexOf('/logout') !== -1){
     logout(request, response, endpoint);
   }
