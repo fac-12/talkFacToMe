@@ -158,8 +158,9 @@ const register = (request, response, endpoint) => {
                        res.end("Sorry, there's been a problem with registration");
                 console.log(err)
               }
+              token = jwt.sign({'logged-in' : 'true', 'username' : `${username}`}, secret);
               response.writeHead(200, {
-               "Content-Type": "text/html"
+               "Content-Type": "text/html", 'Set-Cookie' : `Token = ${token}; HttpOnly; Max-Age=9000;`
              });
              fs.readFile(__dirname + "/../index.html", function(error, file) {
                if (error) {

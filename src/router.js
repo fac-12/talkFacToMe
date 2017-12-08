@@ -51,7 +51,7 @@ const router = (request, response) => {
     cookieCheck(request, response, endpoint, mentor);
   }
   else if(endpoint.indexOf('/register') !== -1){
-    cookieCheck(request, response, endpoint, register);
+    register(request, response, endpoint);
   }
   else if(endpoint.indexOf('/login') !== -1){
     login(request, response, endpoint);
